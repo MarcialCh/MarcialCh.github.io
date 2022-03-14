@@ -129,6 +129,22 @@
 <p>我们可以看出，通过使用节点（而不是边）来表示电影中演员饰演的每个角色，我们不仅可以编码演员在电影中饰演多个角色的情况，也可以编码有关这个角色的其他信息，比如：在屏幕上这个角色出现的时间。</p>
 <h2 id="Property-graph"><a href="#Property-graph" class="headerlink" title="Property graph"></a>Property graph</h2><p>在<code>edge-labeled graph</code>中，我们使用标签来指示边的类型，其中多个边可能具有相同的类型。 相似地，我们可以考虑为节点添加标签。 比如，在图1中，我们可以将节点 <em>Clint Eastwood</em> 和 <em>Anna Levine</em> 标记为 <em>Person</em>， 节点 <em>Unforgiven</em> 标记为 <em>Movie</em>。 我们甚至可以在一个节点上添加多个标签， 比如为 <em>Clint Eastwood</em>  添加标签 <em>Director</em> 和 <em>Actor</em>。 同时，这种信息也可以通过 <code>edge-labeled graph</code> 表示，比如，在RDF中，为 <em>Movie</em> 创建一个新节点， 并创建一条标签为 <em>type</em> 的边连接到 <em>Unforgiven</em>。 可以看出，将节点标签作为模型的一部分对于用户查询和理解来说有一个更为直接的抽象。</p>
 <p>同样地，向<code>edge-labeled graph</code> 添加关于边的信息通常时很麻烦的。例如，如果希望添加信息的来源，比如，<em>act_in</em> 关系来自于网站IMDb，对于此，我们不能简单地向图中添加边。相反地，我们需要创建一个新的关系：<em>act_in</em> 和他们的来源之间的关系。 向<code>edge-labeled graph</code> 中添加新类型的信息可能需要对图形结构进行重大修改，因此需要较大成本。</p>
+<p>因此，对于可能会将各种新类型的元信息定期添加到边或节点的场景，最通用和广泛采用的替代方法时使用<code>edge-labeled graph</code>的拓展，被称之为<code>property graph</code>，此模型目前被一些主流的图数据库采用，比如Neo4j，并且最近由学术界和工业界成员组成的 <em>Linked Data Benchmark Council (LDBC)</em>  标准化。</p>
+<p>在<code>property graph</code>中，边和节点都可以是带标签的。每条边和每个节点都与另外一个唯一的标识符相关联，该唯一标识符可以作为 <em>hook</em> 分配其他元新信息——以一组 <code>property-value </code> 对的形式（称为 <code>attribute</code> ）的形式——直接关联到该边或节点，在实践中，可以将属性和标签编码为额外的边，在实践中，这样的特性允许直接对图进行注释，而无需修改其整体结构。</p>
+<p>比如，在下图中，我们展示了电影数据库中的一个图，其中包含节点和边上的标签和属性。在此图中，节点的属性显示在其下方的圆角矩形中。因此，比如，与节点 $n_1$ 相关联的属性是 <em>name</em>  和 <em>gender</em> ，他们相对应的值是 <em>Clint Eastwood</em> 和 <em>male</em> 。另一方面，边$e_2$不含有任何属性。在此模型中，我们可以直接编码在同一对节点之间标签相同多条边（有多个不同的标识符），也可以使用额外的属性来拓展图，而不用将复杂的属性重构为节点。</p>
+<p><img src="D:\blog\graph\image-20220314083016280.png" alt="image-20220314083016280"></p>
+<p>下面，我们正式定义<code>property graph</code>。</p>
+<blockquote>
+<p>Definition 2.3 (Property graph). A property graph $G$ is a tuple $(V,E,\rho,\lambda,\sigma)$, where:</p>
+<ol>
+<li>$V$ is a finite set of <em>vertices</em> (or <em>nodes</em>).</li>
+<li>$E$ is finite set of <em>edges</em> such that $V$ and $E$ have no elements in common.</li>
+<li>$\rho: E \rightarrow (V \times V)$  is a total function. Intuitively, $\rho(e)&#x3D;(v_1,v_2)$ indicates that $e$ is a directed edge from node $v_1$ to node $v_2$ in $G$.</li>
+<li>$\lambda: (V \cup E) \rightarrow Lab$ is a total function with $Lab$ a set od labels. Intuitively, if $v \in V$ (resp., $e \in E$) and $\rho (v)&#x3D;l$ (resp., $e\in E$), $p \in Prop$ and $\sigma(v,p)&#x3D;s$ (resp., $\sigma(e,p)&#x3D;s$), then $s$ is the value of property $p$ for node $v$ (resp., edge $e$) in the property graph $G$.</li>
+</ol>
+</blockquote>
+<p><img src="D:\blog\graph\image-20220314090156110.png" alt="image-20220314090156110"></p>
+<p>在我们对于<code>property graph</code>，每个节点和边都与一个标签相关联，并且每个 <code>attribute property</code> 至多有一个 value。在一些应用中，</p>
 
       
     </div>
