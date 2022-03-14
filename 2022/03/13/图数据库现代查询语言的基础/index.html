@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   
   
-  <title>图数据库现代查询语言的基础 | Hexo</title>
+  <title>图数据库现代查询语言的基础 | 汪汪队立大功</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="《Foundations of Modern Query Languages for Graph Databases》  Overview研究了现代查询语言的基本特性。首先讨论了两种流行的图数据模型：  edge-labeled graph: 节点通过有向，带标签的边连接。  property graph：节点和边可以进一步带有属性。   然后讨论了两个最基本的图查询功能：graph patte">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图数据库现代查询语言的基础">
 <meta property="og:url" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="汪汪队立大功">
 <meta property="og:description" content="《Foundations of Modern Query Languages for Graph Databases》  Overview研究了现代查询语言的基本特性。首先讨论了两种流行的图数据模型：  edge-labeled graph: 节点通过有向，带标签的边连接。  property graph：节点和边可以进一步带有属性。   然后讨论了两个最基本的图查询功能：graph patte">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/image-20220313080614489.png">
 <meta property="og:image" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/image-20220313081214841.png">
 <meta property="og:image" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/image-20220313082029753.png">
@@ -21,11 +21,11 @@
 <meta property="og:image" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/image-20220314092744224.png">
 <meta property="article:published_time" content="2022-03-12T23:28:40.643Z">
 <meta property="article:modified_time" content="2022-03-14T01:54:01.903Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="cc">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/image-20220313080614489.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="汪汪队立大功" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -53,8 +53,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">汪汪队立大功</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">cc的搬砖小窝</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -68,12 +72,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -158,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/" data-id="cl0pxvp700000fov5gnyx029a" data-title="图数据库现代查询语言的基础" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/13/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%8E%B0%E4%BB%A3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80/" data-id="cl0pxvp700000fov5gnyx029a" data-title="图数据库现代查询语言的基础" class="article-share-link">分享</a>
       
       
       
@@ -170,7 +174,7 @@
   
   
     <a href="/2022/03/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">后一篇</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -194,9 +198,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a></li></ul>
     </div>
   </div>
 
@@ -204,7 +208,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
@@ -229,7 +233,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 John Doe<br>
+      &copy; 2022 cc<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
